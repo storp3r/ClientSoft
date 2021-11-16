@@ -29,6 +29,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import com.storper.matthew.Main;
 import Model.DateTime;
+import Model.User;
 
 /**
  * FXML Controller class
@@ -114,8 +115,8 @@ public class CreateAppointmentController implements Initializable {
 
             String appointmentId = Integer.toString(database.generateIds("appointment"));
             String custId = main.getCustId();
-            String userId = main.getUserId();
-            String userName = main.getUserName();
+            int userId = User.currentUser.getUserId();
+            String userName = User.currentUser.getUserName().getValue();
             String title = MeetingTitle.getText();
             String description = "null";
             String location = Location.getValue().toString();
@@ -171,7 +172,7 @@ public class CreateAppointmentController implements Initializable {
                 if (noConflict) {
 
                     try {
-                        database.InsertIntoDatabase("appointment", appointmentId, custId, userId, title, description,
+                        database.InsertIntoDatabase("appointment", appointmentId, custId, String.valueOf(userId), title, description,
                                 location, contact, type, url, startDateTime.toString(), endDateTime.toString(),
                                 timeStamp, userName, timeStamp, userName);
                         display.DisplayMenu("ViewAppointments", event);
@@ -234,10 +235,8 @@ public class CreateAppointmentController implements Initializable {
         Address.setCellValueFactory(cellData -> cellData.getValue().getCustAddress());
         Phone.setCellValueFactory(cellData -> cellData.getValue().getCustPhone());
         database.buildCustomerTable(CustomerTable);
-        Location.getItems().addAll("London, England",
-                "Phoenix, United States",
-                "New York City, United States");
-        Type.getItems().addAll("Consultation", "Project Management", "Status Update", "General");
+        Location.getItems().addAll("ON-PREMISE", "VIRTUAL");
+        Type.getItems().addAll("Therapy", "Career Counseling", "Meditation Class", "Exercise Class");
         StartHour.getItems().addAll(9, 10, 11, 12, 1, 2, 3, 4);
         StartMinutes.getItems().addAll("00", "15", "30", "45");
         check.setCalendar(Date);

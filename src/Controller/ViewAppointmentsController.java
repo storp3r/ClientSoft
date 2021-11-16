@@ -122,7 +122,7 @@ public class ViewAppointmentsController implements Initializable {
         }      
 
     }
-    
+
 
     @FXML
     void handleHomeButtonAction(ActionEvent event) throws IOException {

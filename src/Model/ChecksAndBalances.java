@@ -204,7 +204,7 @@ public class ChecksAndBalances {
                 super.updateItem(date, empty);
                 LocalDate today = LocalDate.now();
 
-                setDisable(empty || date.compareTo(today) < 0);
+                setDisable(empty || date.compareTo(today) <= 0);
                 
                 if(date.getDayOfWeek() == DayOfWeek.SUNDAY || date.getDayOfWeek() == DayOfWeek.SATURDAY) {
                     setDisable(true);

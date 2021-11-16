@@ -61,6 +61,9 @@ public class ModifyUserController extends User implements Initializable {
 
     @FXML
     private ComboBox permissionComboBox;
+    
+    @FXML
+    private Button addUserButton;
 
     @FXML
     void handleSaveUserAction(ActionEvent event) {
@@ -110,6 +113,8 @@ public class ModifyUserController extends User implements Initializable {
             currentPassword = child.getPassword();
             passwordField.setText(currentPassword);
             confirmPasswordField.setText(currentPassword);
+            addUserButton.setText("UPDATE");
+            windowText.setText("MODIFY USER");
             System.out.println(child.getPassword());
         }
     }

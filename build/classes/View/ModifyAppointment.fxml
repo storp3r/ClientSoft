@@ -50,7 +50,7 @@
             <Label fx:id="UrlLabel" layoutX="47.0" layoutY="310.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="URL :" />
             <Label fx:id="StartTimeLabel" layoutX="47.0" layoutY="405.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="START TIME :" />
             <Label fx:id="EndTimeLabel" layoutX="47.0" layoutY="460.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="END TIME :" />
-            <Button fx:id="CreateAppointmentButton" layoutX="133.0" layoutY="519.0" mnemonicParsing="false" onAction="#handleUpdateAppointmentAction" prefHeight="50.0" prefWidth="250.0" stylesheets="@styles/Styles.css" text="UPDATE ">
+            <Button fx:id="CreateAppointmentButton" layoutX="142.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleUpdateAppointmentAction" prefHeight="50.0" prefWidth="250.0" stylesheets="@styles/Styles.css" text="UPDATE ">
                <styleClass>
                   <String fx:value="viewButtons" />
                   <String fx:value="loginButton" />

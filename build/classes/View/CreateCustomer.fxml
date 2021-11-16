@@ -84,7 +84,7 @@
                         <Font name="Arial Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Button fx:id="addCustomerButton" layoutX="119.0" layoutY="401.0" mnemonicParsing="false" onAction="#handleAddCustomerAction" prefHeight="50.0" prefWidth="250.0" stylesheets="@styles/Styles.css" text="ADD CUSTOMER">
+                  <Button fx:id="addCustomerButton" layoutX="119.0" layoutY="401.0" mnemonicParsing="false" onAction="#handleAddCustomerAction" prefHeight="50.0" prefWidth="250.0" stylesheets="@styles/Styles.css" text="ADD">
                      <styleClass>
                         <String fx:value="viewButtons" />
                         <String fx:value="loginButton" />

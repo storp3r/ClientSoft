@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ClientSoft.jar" size="189878" download="eager" />
+    <jar href="ClientSoft.jar" size="189077" download="eager" />
     <jar href="lib\mysql-connector-java-8.0.27.jar" size="2475087" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="com.storper.matthew.Main"  name="ClientSoft" />

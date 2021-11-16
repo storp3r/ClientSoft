@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import javafx.event.ActionEvent;
 import com.storper.matthew.Main;
 import Model.ChecksAndBalances;
+import Model.User;
 
 /**
  * FXML Controller class
@@ -95,7 +96,7 @@ public class CreateCustomerController implements Initializable {
         boolean cleared = check.checkFields(firstNmField, lastNmField, addressField, cityField, countryField, postalField, phoneField);
             System.out.println(postalField.getText() + " " + phoneField.getText());
         boolean clearedIntegers = check.checkIntegers(postalField, phoneField);       
-        String username = main.getUserName();
+        String username = User.currentUser.getUserName().getValue();
         System.out.println(username);
         if ((cleared) && (clearedIntegers)) {
             String id = Integer.toString(database.generateIds("customer"));
@@ -119,7 +120,7 @@ public class CreateCustomerController implements Initializable {
     
     @FXML
     public void handleHomeButtonAction(ActionEvent event) throws IOException {
-        display.DisplayMenu("Home", event);
+        display.DisplayMenu("ViewCustomers", event);
     }
 
 }

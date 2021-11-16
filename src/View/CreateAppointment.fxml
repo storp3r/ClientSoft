@@ -53,7 +53,7 @@
             <Label fx:id="UrlLabel" layoutX="47.0" layoutY="310.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="URL :" />
             <Label fx:id="StartTimeLabel" layoutX="47.0" layoutY="405.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="START TIME :" />
             <Label fx:id="EndTimeLabel" layoutX="47.0" layoutY="460.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="END TIME :" />
-            <Button fx:id="CreateAppointmentButton" layoutX="107.0" layoutY="515.0" mnemonicParsing="false" onAction="#handleCreateAppointmentAction" prefHeight="50.0" prefWidth="250.0" stylesheets="@styles/Styles.css" text="CREATE APPOINTMENT">
+            <Button fx:id="CreateAppointmentButton" layoutX="142.0" layoutY="517.0" mnemonicParsing="false" onAction="#handleCreateAppointmentAction" prefHeight="50.0" prefWidth="250.0" stylesheets="@styles/Styles.css" text="CREATE">
                <styleClass>
                   <String fx:value="viewButtons" />
                   <String fx:value="loginButton" />
@@ -82,6 +82,5 @@
          </styleClass>
       </Label>
       <Button fx:id="BackButton" layoutX="55.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleBackButtonAction" styleClass="backButton" stylesheets="@styles/Styles.css" text="BACK" />
-      <Button fx:id="HomeButton" layoutX="485.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleHomeButtonAction" styleClass="homeButton" stylesheets="@styles/Styles.css" text="HOME" />
    </children>
 </AnchorPane>
