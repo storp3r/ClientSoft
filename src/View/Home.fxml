@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="586.0" prefWidth="962.0" stylesheets="@styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
+   <children>
+      <Pane prefHeight="580.0" prefWidth="962.0" styleClass="homeMainPane" stylesheets="@styles/Styles.css">
+         <children>
+            <Button fx:id="AppointmentsButton" layoutX="52.0" layoutY="251.0" mnemonicParsing="false" onAction="#handleAppointmentsButton" prefHeight="50.0" prefWidth="175.0" text="APPOINTMENTS">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#b5b4b4" height="35.265" offsetY="5.0" radius="18.75375" width="41.75" />
+               </effect>
+               <styleClass>
+                  <String fx:value="loginButton" />
+                  <String fx:value="viewButtons" />
+               </styleClass></Button>
+            <Pane prefHeight="184.0" prefWidth="962.0" styleClass="homeTopPane">
+               <children>
+                  <Label fx:id="WelcomeLabel" layoutX="31.0" layoutY="14.0" text="Label">
+                     <styleClass>
+                        <String fx:value="usernameText" />
+                        <String fx:value="mainText" />
+                     </styleClass>
+                  </Label>
+                  <Label layoutX="382.0" layoutY="107.0" stylesheets="@styles/Styles.css" text="Upcoming Appointments This Month">
+                     <styleClass>
+                        <String fx:value="mainText" />
+                        <String fx:value="usernameText" />
+                     </styleClass>
+                  </Label>
+                  <MenuButton fx:id="account" contentDisplay="TOP" layoutX="868.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="71.0" style="-fx-background-color: transparent; -fx-padding: 0; -fx-mark-color: #3DDC97; -fx-mark-border-color: #3DDC97; -fx-mark-visibility: hidden; -fx-arrows-visible: false; -fx-mark-shape: &quot;&quot;;" styleClass="account-btn" textFill="#50514f">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="39.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/account.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuButton>
+               </children>
+            </Pane>
+            <Button fx:id="CustomersButton" layoutX="52.0" layoutY="340.0" mnemonicParsing="false" onAction="#handleViewCustomersDisplay" prefHeight="50.0" prefWidth="175.0" stylesheets="@styles/Styles.css" text="CUSTOMERS" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="loginButton" />
+                  <String fx:value="viewButtons" />
+               </styleClass>
+            </Button>
+            <StackPane layoutX="281.0" layoutY="154.0" prefHeight="372.0" prefWidth="621.0">
+               <children>
+                  <TableView fx:id="UpcomingTable" prefHeight="200.0" prefWidth="200.0" styleClass="tableWhite" stylesheets="@styles/Styles.css">
+                    <columns>
+                      <TableColumn fx:id="CustomerName" prefWidth="139.0" text="Customer Name" />
+                      <TableColumn fx:id="Location" prefWidth="153.0" text="Location" />
+                        <TableColumn fx:id="Type" prefWidth="159.0" text="Type" />
+                        <TableColumn fx:id="StartDateTime" prefWidth="169.0" text="Start Time" />
+                    </columns>
+                  </TableView>
+               </children>
+            </StackPane>
+            <Button fx:id="ReportsButton" layoutX="52.0" layoutY="431.0" mnemonicParsing="false" onAction="#handleViewReportsButton" prefHeight="50.0" prefWidth="175.0" stylesheets="@styles/Styles.css" text="REPORTS">
+               <styleClass>
+                  <String fx:value="loginButton" />
+                  <String fx:value="viewButtons" />
+               </styleClass></Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

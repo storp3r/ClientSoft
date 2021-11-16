@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="588.0" prefWidth="464.0" stylesheets="@styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ModifyCustomerController">
+   <children>
+      <Pane layoutY="-1.0" prefHeight="208.0" prefWidth="464.0" styleClass="homeTopPane">
+         <children>
+            <Label fx:id="windowText" layoutX="26.0" layoutY="24.0" text="UPDATE CUSTOMER">
+               <styleClass>
+                  <String fx:value="usernameText" />
+                  <String fx:value="mainText" />
+               </styleClass>
+            </Label>
+            <Pane layoutX="22.0" layoutY="81.0" prefHeight="481.0" prefWidth="419.0" styleClass="homeMainPane">
+               <children>
+                  <Label fx:id="firstNmLabel" layoutX="34.0" layoutY="60.0" prefHeight="25.0" prefWidth="94.0" text="First Name*">
+                     <styleClass>
+                        <String fx:value="mainText" />
+                        <String fx:value="menuText" />
+                     </styleClass>
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lastNmLabel" layoutX="236.0" layoutY="60.0" prefHeight="25.0" prefWidth="94.0" text="Last Name*">
+                     <styleClass>
+                        <String fx:value="mainText" />
+                        <String fx:value="menuText" />
+                     </styleClass>
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="addressLabel" layoutX="34.0" layoutY="125.0" prefHeight="25.0" prefWidth="94.0" text="Address*">
+                     <styleClass>
+                        <String fx:value="mainText" />
+                        <String fx:value="menuText" />
+                     </styleClass>
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="addressTwoLabel" layoutX="34.0" layoutY="190.0" prefHeight="25.0" prefWidth="94.0" text="Address 2">
+                     <styleClass>
+                        <String fx:value="mainText" />
+                        <String fx:value="menuText" />
+                     </styleClass>
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="cityLabel" layoutX="34.0" layoutY="255.0" prefHeight="25.0" prefWidth="94.0" text="City*">
+                     <styleClass>
+                        <String fx:value="mainText" />
+                        <String fx:value="menuText" />
+                     </styleClass>
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="countryLabel" layoutX="37.0" layoutY="320.0" prefHeight="25.0" prefWidth="94.0" text="Country*">
+                     <styleClass>
+                        <String fx:value="mainText" />
+                        <String fx:value="menuText" />
+                     </styleClass>
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="postalLabel" layoutX="236.0" layoutY="255.0" prefHeight="25.0" prefWidth="123.0" text="Postal Code*">
+                     <styleClass>
+                        <String fx:value="mainText" />
+                        <String fx:value="menuText" />
+                     </styleClass>
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="phoneLabel" layoutX="236.0" layoutY="320.0" prefHeight="25.0" prefWidth="123.0" text="Phone Number*">
+                     <styleClass>
+                        <String fx:value="mainText" />
+                        <String fx:value="menuText" />
+                     </styleClass>
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="updateCustomerButton" layoutX="84.0" layoutY="405.0" mnemonicParsing="false" onAction="#handleUpdateCustomerButton" prefHeight="50.0" prefWidth="250.0" stylesheets="@styles/Styles.css" text="UPDATE CUSTOMER">
+                     <styleClass>
+                        <String fx:value="viewButtons" />
+                        <String fx:value="loginButton" />
+                     </styleClass>
+                  </Button>
+                  <TextField fx:id="firstNmField" layoutX="35.0" layoutY="90.0" />
+                  <TextField fx:id="lastNmField" layoutX="236.0" layoutY="90.0" />
+                  <TextField fx:id="addressField" layoutX="34.0" layoutY="155.0" prefHeight="25.0" prefWidth="350.0" />
+                  <TextField fx:id="addressTwoField" layoutX="34.0" layoutY="220.0" prefHeight="25.0" prefWidth="350.0" />
+                  <TextField fx:id="cityField" layoutX="35.0" layoutY="285.0" />
+                  <TextField fx:id="countryField" layoutX="35.0" layoutY="350.0" />
+                  <TextField fx:id="postalField" layoutX="236.0" layoutY="285.0" />
+                  <TextField fx:id="phoneField" layoutX="236.0" layoutY="350.0" />
+                  <Label layoutX="34.0" layoutY="29.0" text="* Required Field" />
+               </children>
+               <effect>
+                  <DropShadow color="#d7d7d7" />
+               </effect>
+            </Pane>
+            <Button fx:id="BackButton" layoutX="392.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleBackButtonAction" styleClass="backButton" stylesheets="@styles/Styles.css" text="BACK" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="597.0" prefWidth="946.0" styleClass="homeTopPane" stylesheets="@styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CreateAppointmentController">
+   <children>
+      <StackPane layoutX="48.0" layoutY="156.0" prefHeight="332.0" prefWidth="488.0">
+         <children>
+            <TableView fx:id="CustomerTable" onMouseReleased="#handleAddContactAction" prefHeight="200.0" prefWidth="200.0" styleClass="tableGreen" stylesheets="@styles/Styles.css">
+              <columns>
+                <TableColumn fx:id="Id" prefWidth="57.0" text="Id" />
+                <TableColumn fx:id="Name" prefWidth="135.0" text="Name" />
+                  <TableColumn fx:id="Address" prefWidth="184.0" text="Address" />
+                  <TableColumn fx:id="Phone" prefWidth="111.0" text="Phone" />
+              </columns>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TableView>
+         </children>
+      </StackPane>
+      <Pane layoutX="582.0" prefHeight="597.0" prefWidth="464.0" styleClass="homeMainPane" stylesheets="@styles/Styles.css">
+         <children>
+            <TextField fx:id="Url" layoutX="189.0" layoutY="310.0" prefHeight="25.0" prefWidth="226.0" promptText="Enter Meeting Url" />
+            <TextField fx:id="Contact" disable="true" editable="false" layoutX="189.0" layoutY="230.0" opacity="0.94" prefHeight="25.0" prefWidth="226.0" promptText="Select From Contact Table" style="-fx-prompt-text-fill: #fffcff; -fx-font-weight: 900; -fx-background-color: #E4572E;">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></TextField>
+            <TextArea fx:id="Description" layoutX="189.0" layoutY="160.0" prefHeight="53.0" prefWidth="226.0" promptText="Enter Meeting Description" />
+            <TextField fx:id="MeetingTitle" layoutX="189.0" layoutY="80.0" prefHeight="25.0" prefWidth="226.0" promptText="Enter Meeting Title" />
+            <Label fx:id="TitleLabel" layoutX="47.0" layoutY="80.0" text="TITLE :" textFill="#6f6f6f">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="LocationLabel" layoutX="47.0" layoutY="120.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="LOCATION :" />
+            <Label fx:id="DescriptionLabel" layoutX="47.0" layoutY="175.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="DESCRIPTION :" />
+            <Label fx:id="ContactLabel" layoutX="47.0" layoutY="230.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="CONTACT :" />
+            <Label fx:id="TypeLabel" layoutX="47.0" layoutY="270.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="TYPE :" />
+            <Label fx:id="UrlLabel" layoutX="47.0" layoutY="310.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="URL :" />
+            <Label fx:id="StartTimeLabel" layoutX="47.0" layoutY="405.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="START TIME :" />
+            <Label fx:id="EndTimeLabel" layoutX="47.0" layoutY="460.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="END TIME :" />
+            <Button fx:id="CreateAppointmentButton" layoutX="107.0" layoutY="515.0" mnemonicParsing="false" onAction="#handleCreateAppointmentAction" prefHeight="50.0" prefWidth="250.0" stylesheets="@styles/Styles.css" text="CREATE APPOINTMENT">
+               <styleClass>
+                  <String fx:value="viewButtons" />
+                  <String fx:value="loginButton" />
+               </styleClass></Button>
+            <Label layoutX="100.0" layoutY="20.0" styleClass="usernameText" stylesheets="@styles/Styles.css" text="Create New Appointment" textFill="#50514f" />
+            <ComboBox fx:id="Location" layoutX="189.0" layoutY="120.0" prefHeight="25.0" prefWidth="226.0" promptText="SELECT A LOCATION" />
+            <Label fx:id="DateLabel" layoutX="47.0" layoutY="350.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="DATE :" />
+            <DatePicker fx:id="Date" layoutX="189.0" layoutY="350.0" prefHeight="25.0" prefWidth="226.0" />
+            <Label fx:id="HourLabel" layoutX="189.0" layoutY="385.0" text="HOUR" />
+            <Label fx:id="MinuteLabel" layoutX="277.0" layoutY="385.0" text="MINUTES" />
+            <Label fx:id="HourLabel" layoutX="189.0" layoutY="440.0" text="HOUR" />
+            <Label fx:id="MinuteLabel" layoutX="277.0" layoutY="440.0" text="MINUTES" />
+            <ComboBox fx:id="StartHour" layoutX="189.0" layoutY="405.0" onAction="#handleStartHourSelection" prefHeight="25.0" prefWidth="68.0" />
+            <ComboBox fx:id="StartMinutes" layoutX="277.0" layoutY="405.0" onAction="#handleStartMinutesSelection" prefHeight="25.0" prefWidth="68.0" />
+            <ComboBox fx:id="EndHour" layoutX="189.0" layoutY="460.0" onAction="#handleEndTimeSelection" prefHeight="25.0" prefWidth="68.0" />
+            <ComboBox fx:id="EndMinutes" layoutX="277.0" layoutY="460.0" prefHeight="25.0" prefWidth="68.0" />
+            <Label fx:id="AmPm1" layoutX="370.0" layoutY="408.0" text="Label" />
+            <Label fx:id="AmPm2" layoutX="371.0" layoutY="463.0" text="Label" />
+            <ComboBox fx:id="Type" layoutX="189.0" layoutY="270.0" prefHeight="25.0" prefWidth="226.0" promptText="MEETING TYPE" />
+         </children>
+      </Pane>
+      <Label fx:id="ContactSelectLabel" layoutX="201.0" layoutY="110.0" stylesheets="@styles/Styles.css" text="SELECT CONTACT">
+         <styleClass>
+            <String fx:value="mainText" />
+            <String fx:value="usernameText" />
+         </styleClass>
+      </Label>
+      <Button fx:id="BackButton" layoutX="55.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleBackButtonAction" styleClass="backButton" stylesheets="@styles/Styles.css" text="BACK" />
+      <Button fx:id="HomeButton" layoutX="485.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleHomeButtonAction" styleClass="homeButton" stylesheets="@styles/Styles.css" text="HOME" />
+   </children>
+</AnchorPane>

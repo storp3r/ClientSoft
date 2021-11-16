@@ -1,0 +1,101 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 1, 2020, 12:31:45 PM
+    Author     : Matt
+*/
+.account-btn > .cursor, .account-btn > .arrow-button > .arrow {
+    padding: 200px;
+}
+.appointmentLabel {
+    -fx-text-fill: #6f6f6f;
+    -fx-font-family: 'Arial Black';
+    -fx-font-size: 14px;    
+}
+
+.backButton {
+    -fx-background-color:  #E4572E;
+    -fx-text-fill:  #fffcff;
+}
+
+.homeButton {
+    -fx-background-color:  transparent;    
+    -fx-font-size: 16px;
+    -fx-text-fill: #fffcff;    
+    -fx-font-family: "Helvetica";    
+    -fx-font-weight: 900; 
+}
+
+.homeMainPane {
+    -fx-background-color: #fffcff;
+}
+
+.mainText {
+    -fx-text-fill: #fff;
+}
+
+.menuText {
+    -fx-text-fill: #50514F;
+    -fx-font-family: arial;
+    -fx-font-weight: 700;
+    -fx-font-size: 16px;
+}
+
+.monthCombo {
+    -fx-prompt-text-fill: #fff;
+}
+
+.usernameText {
+    -fx-font-size: 22px;
+    -fx-font-weight: 900;
+}
+
+.homeTopPane {
+    -fx-background-color: #3DDC97;
+}
+
+
+.loginButton {
+    -fx-background-color: #3DDC97;    
+}
+
+.tableGreen {
+    -fx-effect: dropshadow( three-pass-box , rgba(124,104,104,.8) , 21, 0 , 0 , 5);
+}
+
+.tableWhite {
+    -fx-effect: dropshadow( three-pass-box , rgba(181,180,180,.8) , 21, 0 , 0 , 5);
+}
+
+.viewButtons {    
+    -fx-padding: 0px 20px;
+    -fx-border-style: solid;
+    -fx-border-width: 4px;
+    -fx-font-size: 16px;
+    -fx-text-fill: #fffcff;    
+    -fx-font-family: "Helvetica";
+    -fx-border-color: #fffcff;
+    -fx-font-weight: 900;   
+    -fx-background-insets: 0,1,4,5,6;
+    -fx-background-radius: 9,8,5,4,3; 
+    -fx-pref-height: 50px;
+    -fx-pref-width: 180px;
+    -fx-effect: dropshadow( three-pass-box , rgba(124,104,104,.8) , 21, 0 , 0 , 5);
+}
+
+.viewCreate {
+    -fx-background-color: #247BA0;
+    
+}
+
+.viewDelete {
+    -fx-background-color: #E4572E;
+    -fx-effect: dropshadow( three-pass-box , rgba(124,104,104,.8) , 21, 0 , 0 , 5);
+}
+
+.viewModify {
+    -fx-background-color: #247BA0;
+}

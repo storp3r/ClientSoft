@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="727.0" prefWidth="1349.0" styleClass="homeTopPane" stylesheets="@styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ViewAppointmentsController">
+   <children>
+      <Label layoutX="589.0" layoutY="62.0" stylesheets="@styles/Styles.css" text="APPOINTMENTS">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <styleClass>
+            <String fx:value="mainText" />
+            <String fx:value="usernameText" />
+         </styleClass>
+      </Label>
+      <Pane layoutY="202.0" prefHeight="525.0" prefWidth="1349.0" styleClass="homeMainPane" />
+      <Button fx:id="HomeButton1" contentDisplay="GRAPHIC_ONLY" layoutX="1260.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleHomeButtonAction" styleClass="homeButton" stylesheets="@styles/Styles.css" text="Home" />
+      <StackPane layoutX="32.0" layoutY="116.0" prefHeight="482.0" prefWidth="1286.0">
+         <children>
+            <TableView fx:id="AppointmentTable" prefHeight="343.0" prefWidth="889.0" StackPane.alignment="CENTER">
+               <columns>
+                  <TableColumn fx:id="AppointmentId" editable="false" prefWidth="75.0" text="Column X" visible="false" />
+                  <TableColumn fx:id="Title" prefWidth="155.0" resizable="false" text="Title" />
+                  <TableColumn fx:id="Description" prefWidth="275.0" resizable="false" text="Description" />
+                  <TableColumn fx:id="Location" prefWidth="152.0" resizable="false" text="Location" />
+                  <TableColumn fx:id="CustomerName" prefWidth="147.0" text="Customer Name" />
+                  <TableColumn fx:id="Type" prefWidth="116.0" text="Type" />
+                  <TableColumn fx:id="StartDateTime" prefWidth="130.0" text="Start Time" />
+                  <TableColumn fx:id="EndDateTime" prefWidth="117.0" text="End Time" />
+                  <TableColumn fx:id="Url" prefWidth="193.0" text="Meeting Url" />
+               </columns>
+            </TableView>
+         </children>
+      </StackPane>
+      <Button fx:id="DeleteAppointmentButton" layoutX="881.0" layoutY="634.0" mnemonicParsing="false" onAction="#handleDeleteButtonAction" prefHeight="50.0" prefWidth="250.0" stylesheets="@styles/Styles.css" text="DELETE">
+         <styleClass>
+            <String fx:value="viewButtons" />
+            <String fx:value="viewDelete" />
+         </styleClass></Button>
+      <Button fx:id="ModifyAppointmentButton" layoutX="550.0" layoutY="634.0" mnemonicParsing="false" onAction="#handleModifyButtonAction" prefHeight="50.0" prefWidth="250.0" stylesheets="@styles/Styles.css" text="EDIT">
+         <styleClass>
+            <String fx:value="viewButtons" />
+            <String fx:value="viewCreate" />
+         </styleClass></Button>
+      <Button fx:id="CreateAppointmentButton" layoutX="210.0" layoutY="634.0" mnemonicParsing="false" onAction="#handleCreateAppointmentButton" prefHeight="50.0" prefWidth="250.0" stylesheets="@styles/Styles.css" text="ADD NEW">
+         <effect>
+            <DropShadow color="#7c6969" />
+         </effect>
+         <styleClass>
+            <String fx:value="viewButtons" />
+            <String fx:value="loginButton" />
+         </styleClass></Button>
+      <ComboBox fx:id="YearCombo" layoutX="294.0" layoutY="78.0" prefHeight="25.0" prefWidth="118.0" promptText="Select Year" styleClass="monthCombo" stylesheets="@styles/Styles.css" />
+      <ComboBox id="monthCombo" fx:id="MonthCombo" layoutX="163.0" layoutY="78.0" prefHeight="25.0" prefWidth="118.0" promptText="Select Month" />
+      <Label layoutX="32.0" layoutY="78.0" styleClass="mainText" stylesheets="@styles/Styles.css" text="View By Month">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="WeekPicker" editable="false" layoutX="1144.0" layoutY="74.0" onAction="#handleFilterByWeek" promptText="Select Week" />
+      <Label layoutX="1024.0" layoutY="74.0" style="-fx-font-weight: 900;" styleClass="mainText" stylesheets="@styles/Styles.css" text="View By Week">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="434.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleFilterByMonth" text="Filter" />
+      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="1272.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/home2.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

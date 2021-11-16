@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+
+<AnchorPane id="AnchorPane" fx:id="PermissionLevel" prefHeight="549.0" prefWidth="698.0" styleClass="homeTopPane" stylesheets="@styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ManageUsersController">
+   <children>
+      <Pane layoutY="164.0" prefHeight="386.0" prefWidth="698.0" styleClass="homeMainPane" stylesheets="@styles/Styles.css">
+         <children>
+            <Button fx:id="addButton" layoutX="31.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleCreateUser" style="-fx-pref-height: 50px;" text="ADD NEW">
+               <styleClass>
+                  <String fx:value="viewButtons" />
+                  <String fx:value="loginButton" />
+               </styleClass>
+            </Button>
+            <Button fx:id="modifyButton" layoutX="259.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleModifyUser" text="EDIT">
+               <styleClass>
+                  <String fx:value="viewButtons" />
+                  <String fx:value="viewModify" />
+               </styleClass>
+            </Button>
+            <Button fx:id="deleteButton" layoutX="494.0" layoutY="295.0" mnemonicParsing="false" text="DELETE">
+               <styleClass>
+                  <String fx:value="viewButtons" />
+                  <String fx:value="viewDelete" />
+               </styleClass>
+            </Button>
+         </children></Pane>
+      <StackPane layoutX="27.0" layoutY="99.0" prefHeight="327.0" prefWidth="645.0" styleClass="homeTopPane" stylesheets="@styles/Styles.css">
+         <children>
+            <TableView fx:id="UserTable" prefHeight="327.0" prefWidth="610.0" styleClass="tableWhite">
+              <columns>
+                  <TableColumn fx:id="UserId" prefWidth="75.0" text="Column X" visible="false" />
+                <TableColumn fx:id="Name" prefWidth="178.0" text="Name" />
+                <TableColumn fx:id="Username" prefWidth="193.0" text="Username" />
+                  <TableColumn fx:id="Active" minWidth="0.0" prefWidth="134.0" text="Active" />
+                  <TableColumn fx:id="Permission" prefWidth="138.0" text="Permission Level" />
+              </columns>
+            </TableView>
+         </children>
+      </StackPane>
+      <Button fx:id="backBtn" layoutX="621.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButton" styleClass="backButton" text="BACK" />
+      <Label layoutX="264.0" layoutY="49.0" text="MANAGE USERS">
+         <styleClass>
+            <String fx:value="mainText" />
+            <String fx:value="usernameText" />
+         </styleClass>
+      </Label>
+   </children>
+</AnchorPane>
