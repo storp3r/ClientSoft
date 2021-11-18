@@ -19,6 +19,8 @@ import javafx.event.ActionEvent;
 import com.storper.matthew.Main;
 import Model.ChecksAndBalances;
 import Model.User;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * FXML Controller class
@@ -88,7 +90,7 @@ public class CreateCustomerController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        
     }
 
     @FXML

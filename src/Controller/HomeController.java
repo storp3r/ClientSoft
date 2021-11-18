@@ -20,6 +20,7 @@ import javafx.scene.control.TableView;
 import com.storper.matthew.Main;
 import Model.Database;
 import Model.User;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.EventHandler;
@@ -80,6 +81,7 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Database.getConnection();
         WelcomeLabel.setText(language.getString("welcomeText") + ", " + User.currentUser.getUserName().getValue() + "!");        
         
 

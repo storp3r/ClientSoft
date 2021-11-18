@@ -38,18 +38,18 @@
             </TextField>
             <TextArea fx:id="Description" layoutX="189.0" layoutY="160.0" prefHeight="53.0" prefWidth="226.0" promptText="Enter Meeting Description" />
             <TextField fx:id="MeetingTitle" layoutX="189.0" layoutY="80.0" prefHeight="25.0" prefWidth="226.0" promptText="Enter Meeting Title" />
-            <Label fx:id="TitleLabel" layoutX="47.0" layoutY="80.0" text="TITLE :" textFill="#6f6f6f">
+            <Label fx:id="TitleLabel" layoutX="47.0" layoutY="80.0" text="TITLE* :" textFill="#6f6f6f">
                <font>
                   <Font name="Arial Black" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="LocationLabel" layoutX="47.0" layoutY="120.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="LOCATION :" />
+            <Label fx:id="LocationLabel" layoutX="47.0" layoutY="120.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="LOCATION* :" />
             <Label fx:id="DescriptionLabel" layoutX="47.0" layoutY="175.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="DESCRIPTION :" />
-            <Label fx:id="ContactLabel" layoutX="47.0" layoutY="230.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="CONTACT :" />
-            <Label fx:id="TypeLabel" layoutX="47.0" layoutY="270.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="TYPE :" />
+            <Label fx:id="ContactLabel" layoutX="47.0" layoutY="230.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="CONTACT* :" />
+            <Label fx:id="TypeLabel" layoutX="47.0" layoutY="270.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="TYPE* :" />
             <Label fx:id="UrlLabel" layoutX="47.0" layoutY="310.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="URL :" />
-            <Label fx:id="StartTimeLabel" layoutX="47.0" layoutY="405.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="START TIME :" />
-            <Label fx:id="EndTimeLabel" layoutX="47.0" layoutY="460.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="END TIME :" />
+            <Label fx:id="StartTimeLabel" layoutX="47.0" layoutY="405.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="START TIME* :" />
+            <Label fx:id="EndTimeLabel" layoutX="47.0" layoutY="460.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="END TIME* :" />
             <Button fx:id="CreateAppointmentButton" layoutX="142.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleUpdateAppointmentAction" prefHeight="50.0" prefWidth="250.0" stylesheets="@styles/Styles.css" text="UPDATE ">
                <styleClass>
                   <String fx:value="viewButtons" />
@@ -57,7 +57,7 @@
                </styleClass></Button>
             <Label layoutX="123.0" layoutY="23.0" styleClass="usernameText" stylesheets="@styles/Styles.css" text="Modify Appointment" textFill="#50514f" />
             <ComboBox fx:id="Location" layoutX="189.0" layoutY="120.0" prefHeight="25.0" prefWidth="226.0" promptText="SELECT A LOCATION" />
-            <Label fx:id="DateLabel" layoutX="47.0" layoutY="350.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="DATE :" />
+            <Label fx:id="DateLabel" layoutX="47.0" layoutY="350.0" styleClass="appointmentLabel" stylesheets="@styles/Styles.css" text="DATE* :" />
             <DatePicker fx:id="Date" layoutX="189.0" layoutY="350.0" prefHeight="25.0" prefWidth="226.0" />
             <Label fx:id="HourLabel" layoutX="189.0" layoutY="385.0" text="HOUR" />
             <Label fx:id="MinuteLabel" layoutX="277.0" layoutY="385.0" text="MINUTES" />
@@ -79,6 +79,5 @@
          </styleClass>
       </Label>
       <Button fx:id="BackButton" layoutX="65.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleBackButtonAction" styleClass="backButton" stylesheets="@styles/Styles.css" text="BACK" />
-      <Button fx:id="HomeButton" layoutX="495.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleHomeButtonAction" styleClass="homeButton" stylesheets="@styles/Styles.css" text="HOME" />
    </children>
 </AnchorPane>

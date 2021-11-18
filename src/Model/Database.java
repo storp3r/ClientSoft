@@ -17,6 +17,10 @@ import com.storper.matthew.Main;
 import Model.User;
 import Model.DateTime;
 import Model.ChecksAndBalances;
+import java.sql.DriverManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
 
 /**
  *
@@ -32,12 +36,35 @@ public class Database {
     ChecksAndBalances verify = new ChecksAndBalances();
 
     //setter
-    public static void setConnection(Connection conn) {
+    public static void setConnection() {
+
+        String url = "jdbc:mysql://162.144.181.164:3306/nxd6yz8u_capstonedb?useSSL=false&allowPublicKeyRetrieval=true&interactiveUser=true";
+        String username = "nxd6yz8u_user";
+        String password = "FTXmFsTm9xhr";
+        Connection conn = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(url, username, password);
+        } catch (SQLException | ClassNotFoundException se) {
+            Display.DisplayErrorMessage("connErrorTitle", "connErrorMessage");
+//            updateLog("error", String.valueOf(se));
+            Platform.exit();
+            se.printStackTrace();
+        }
         connection = conn;
     }
 
     //getter
     public static Connection getConnection() {
+        try {
+            if (connection.isClosed() || connection == null) {
+                setConnection();
+                System.out.println("Connection reset");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        } 
         return connection;
     }
 
@@ -65,9 +92,11 @@ public class Database {
                         rs.getString("url"),
                         convert.dateTimeToString(rs.getTimestamp("start")),
                         convert.dateTimeToString(rs.getTimestamp("end"))
-                );
+                );                
                 appointmentArray.add(appointment);
             }
+            query.closeOnCompletion();
+            
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -93,9 +122,10 @@ public class Database {
                         rs.getString("location"),
                         rs.getString("type"),
                         convert.dateTimeToString(rs.getTimestamp("start"))
-                );
+                );                
                 appointmentArray.add(appointment);
             }
+            query.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -126,9 +156,10 @@ public class Database {
                         rs.getString("password"));
                 userArray.add(user);
             }
+            query.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
-        }
+        } 
         table.setItems(userArray);
     }
 
@@ -199,9 +230,10 @@ public class Database {
                         rs.getString("url"),
                         convert.dateTimeToString(rs.getTimestamp("start")),
                         convert.dateTimeToString(rs.getTimestamp("end"))
-                );
+                );                
                 appointmentArray.add(appointment);
             }
+            query.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -242,9 +274,10 @@ public class Database {
                         rs.getString("url"),
                         convert.dateTimeToString(rs.getTimestamp("start")),
                         convert.dateTimeToString(rs.getTimestamp("end"))
-                );
+                );                
                 appointmentArray.add(appointment);
             }
+            query.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -274,6 +307,7 @@ public class Database {
                 );
                 typeArray.add(type);
             }
+            query.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -306,6 +340,7 @@ public class Database {
                 );
                 clientArray.add(clientRecord);
             }
+            query.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -342,6 +377,7 @@ public class Database {
                 );
                 customerArray.add(customer);
             }
+            query.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -381,6 +417,7 @@ public class Database {
                 );
                 customerArray.add(customer);
             }
+           query.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -438,7 +475,7 @@ public class Database {
 
                 }
             }
-
+            query.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -460,6 +497,7 @@ public class Database {
         try {
             PreparedStatement query = getConnection().prepareStatement(statement);
             query.execute();
+            query.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -471,6 +509,7 @@ public class Database {
         try {
             PreparedStatement query = getConnection().prepareStatement(statement);
             query.execute();
+            query.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -484,7 +523,7 @@ public class Database {
         try {
             PreparedStatement query = getConnection().prepareStatement(sql);
             rs = query.executeQuery();
-
+            query.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -501,6 +540,7 @@ public class Database {
             if (rs.next()) {
                 newId = rs.getInt("currentId") + 1;
             }
+            query.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -522,6 +562,7 @@ public class Database {
             statement.setString(6, currentUser);
             statement.setString(7, currentUser);
             statement.execute();
+            statement.closeOnCompletion();
             System.out.println("added!");
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
@@ -530,29 +571,30 @@ public class Database {
         }
     }
 
-    public void updateUser(int userId,String name, String userName, String password, int active, int permissionLevel, String currentUser) {
+    public void updateUser(int userId, String name, String userName, String password, int active, int permissionLevel, String currentUser) {
         String sql = "Update user SET name = ?, userName = ?, password = ?, active = ?, permissionLevel = ?,"
                 + "  lastUpdate = CURRENT_TIMESTAMP, lastUpdatedBy = ? "
                 + "WHERE userId = ?";
-        
+
         try {
-        PreparedStatement statement = getConnection().prepareStatement(sql);
-        statement.setString(1, name);
-        statement.setString(2, userName);
-        statement.setString(3, password);
-        statement.setInt(4, active);
-        statement.setInt(5, permissionLevel);
-        statement.setString(6, currentUser);
-        statement.setInt(7, userId);
-        statement.execute();
+            PreparedStatement statement = getConnection().prepareStatement(sql);
+            statement.setString(1, name);
+            statement.setString(2, userName);
+            statement.setString(3, password);
+            statement.setInt(4, active);
+            statement.setInt(5, permissionLevel);
+            statement.setString(6, currentUser);
+            statement.setInt(7, userId);
+            statement.execute();
+            statement.closeOnCompletion();
             System.out.println("Updated!");
-        }catch (SQLException se) {
+        } catch (SQLException se) {
             main.updateLog("error", se.toString());
             System.out.println(se.toString());
             System.out.println("not successful!");
         }
     }
-    
+
     public void InsertIntoDatabase(String tablename, String... args) throws SQLException {
 
         int number = 0;
@@ -582,6 +624,7 @@ public class Database {
         try {
             PreparedStatement query = getConnection().prepareStatement(statement);
             query.execute();
+            query.closeOnCompletion();
 
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
@@ -620,7 +663,7 @@ public class Database {
                         + " to " + endTime);
                 display.DisplayErrorMessage("notAvailable", "notAvailableMessage");
             }
-
+            query.closeOnCompletion();
         } catch (SQLException se) {
             noConflict = false;
             main.updateLog("error", se.toString());
@@ -646,7 +689,7 @@ public class Database {
         try {
             PreparedStatement query = getConnection().prepareStatement(statement);
             rs = query.executeQuery();
-
+            query.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -662,7 +705,7 @@ public class Database {
         try {
             PreparedStatement query = getConnection().prepareStatement(statement);
             rs = query.executeQuery();
-
+            query.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -681,7 +724,7 @@ public class Database {
             sql.setString(4, phone);
             sql.setInt(5, Integer.parseInt(id));
             sql.execute();
-
+            sql.closeOnCompletion();;
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -699,7 +742,7 @@ public class Database {
             sql.setString(3, phone);
             sql.setInt(4, Integer.parseInt(id));
             sql.execute();
-
+            sql.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -726,7 +769,7 @@ public class Database {
             sql.setString(9, userName);
             sql.setInt(10, Integer.parseInt(appointmentId));
             sql.execute();
-
+            sql.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -751,7 +794,7 @@ public class Database {
             sql.setString(9, userName);
             sql.setInt(10, Integer.parseInt(appointmentId));
             sql.execute();
-
+            sql.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -765,6 +808,7 @@ public class Database {
             sql.setString(1, city);
             sql.setInt(2, Integer.parseInt(id));
             sql.execute();
+            sql.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -778,7 +822,7 @@ public class Database {
             sql.setString(1, country);
             sql.setInt(2, Integer.parseInt(id));
             sql.execute();
-
+            sql.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
@@ -794,13 +838,11 @@ public class Database {
             sql.setString(1, customerName);
             sql.setInt(2, Integer.parseInt(id));
             sql.execute();
-
+            sql.closeOnCompletion();
         } catch (SQLException se) {
             main.updateLog("error", se.toString());
         }
 
     }
-
-    
 
 }

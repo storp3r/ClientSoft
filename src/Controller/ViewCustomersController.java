@@ -24,6 +24,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import com.storper.matthew.Main;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * FXML Controller class
@@ -132,7 +135,7 @@ public class ViewCustomersController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) {        
         //This lambda used for simple table population
         Id.setCellValueFactory(cellData -> cellData.getValue().getCustId());
         Name.setCellValueFactory(cellData -> cellData.getValue().getCustName());

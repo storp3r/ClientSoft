@@ -75,7 +75,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Button layoutX="434.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleFilterByMonth" text="Filter" />
+      <Button layoutX="421.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleFilterByMonth" text="Filter" />
       <Button fx:id="HomeButton1" contentDisplay="GRAPHIC_ONLY" layoutX="1260.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleHomeButtonAction" styleClass="homeButton" stylesheets="@styles/Styles.css" text="Home">
          <graphic>
             <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
@@ -84,5 +84,6 @@
                </image>
             </ImageView>
          </graphic></Button>
+      <Button fx:id="resetButton" layoutX="477.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleResetAction" text="Reset" />
    </children>
 </AnchorPane>

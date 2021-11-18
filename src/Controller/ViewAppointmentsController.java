@@ -67,6 +67,9 @@ public class ViewAppointmentsController implements Initializable {
 
     @FXML
     private DatePicker WeekPicker;
+    
+    @FXML
+    private Button resetButton;
 
     @FXML
     void handleCreateAppointmentButton(ActionEvent event) throws IOException {
@@ -143,12 +146,17 @@ public class ViewAppointmentsController implements Initializable {
         }
 
     }
+    
+    @FXML
+    void handleResetAction(ActionEvent event) {
+    database.buildAppointmentTable(AppointmentTable);
+    }
 
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) {       
         AppointmentId.setCellValueFactory(cellData -> cellData.getValue().getAppointmentId());
         Title.setCellValueFactory(cellData -> cellData.getValue().getTitle());
         Description.setCellValueFactory(cellData -> cellData.getValue().getDescription());

@@ -122,7 +122,7 @@ public class User {
         int currentPermissionLevel = getPermissionLevel();
 
         for (int i : permissions.keySet()) {
-            if (i < currentPermissionLevel) {
+            if (i <= currentPermissionLevel) {
                 permissionsList.add(permissions.get(i));
             }
         }

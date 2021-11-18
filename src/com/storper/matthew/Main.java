@@ -54,24 +54,19 @@ public class Main extends Application {
 //        setDefault(new Locale("es", "ES"));
         
         activeWindow = stage;
-
-        activeWindow.setTitle("Appointment Manager 3000");
-
+        activeWindow.setTitle("ClientSoft");
         fxmlloader = new FXMLLoader();
-
         fxmlloader.setLocation(Main.class.getResource("/View/Login.fxml")); 
-
         mainMenu = (AnchorPane) fxmlloader.load();
-
         Scene scene = new Scene(mainMenu);
-
         activeWindow.setScene(scene);
-
         activeWindow.setResizable(false);
 
         activeWindow.show();
 
-        establishConnection();
+//        establishConnection();
+        Database.setConnection();
+       
 
         try {
             File log = new File("log.txt");
@@ -85,35 +80,16 @@ public class Main extends Application {
         }
 
     }
-
-    public void establishConnection() throws ClassNotFoundException {
-
-        String url = "jdbc:mysql://162.144.181.164:3306/nxd6yz8u_capstonedb?useSSL=false&allowPublicKeyRetrieval=true";
-        String username = "nxd6yz8u_user";
-        String password = "FTXmFsTm9xhr";
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(url, username, password);
-            Database.setConnection(conn);
-        } catch (SQLException se) {
-            Display.DisplayErrorMessage("connErrorTitle", "connErrorMessage");
-            updateLog("error", String.valueOf(se));
-            Platform.exit();
-            se.printStackTrace();
-        }
-        
-        
-
-    }
+ 
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-        launch(args);
-       
+        launch(args);      
+
     }
+    
 
     public void updateLog(String info, String type) {
         

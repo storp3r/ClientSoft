@@ -20,6 +20,8 @@ import java.sql.SQLException;
 import com.storper.matthew.Main;
 import javafx.event.ActionEvent;
 import Model.ChecksAndBalances;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * FXML Controller class
@@ -102,7 +104,7 @@ public class ModifyCustomerController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) {      
         
         loadCustomer();
 

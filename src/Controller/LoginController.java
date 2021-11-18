@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import Model.Database;
+import static Model.Database.getConnection;
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -59,7 +60,6 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
         loginWindowLabel.setText(language.getString("loginWindowText"));
         usernameLabel.setText(language.getString("usernameLabel"));
         passwordLabel.setText(language.getString("passwordLabel"));
@@ -100,7 +100,7 @@ public class LoginController implements Initializable {
                 } else{
                     Display.DisplayErrorMessage("accountNotActive", "accountNotActiveMessage");
                 }
-
+               getConnection().close();
             } else {
                 main.updateLog("Attempted log in failed: Username '" + username + "' and password "
                         + "combination was not found.", "alert");

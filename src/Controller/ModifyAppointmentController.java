@@ -32,6 +32,8 @@ import com.storper.matthew.Main;
 import Model.DateTime;
 import Model.User;
 import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * FXML Controller class
@@ -287,6 +289,7 @@ public class ModifyAppointmentController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         Id.setCellValueFactory(cellData -> cellData.getValue().getCustId());
         Name.setCellValueFactory(cellData -> cellData.getValue().getCustName());
         Address.setCellValueFactory(cellData -> cellData.getValue().getCustAddress());

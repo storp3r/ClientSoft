@@ -10,7 +10,10 @@ import Model.Display;
 import Model.User;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -62,7 +65,9 @@ public class ManageUsersController implements Initializable {
      @FXML
      public void handleModifyUser(ActionEvent event) throws IOException {
      User.childUser = UserTable.getSelectionModel().getSelectedItem();
+     if(User.childUser != null) {
      display.DisplayMenu("ModifyUser", event);
+     }
          System.out.println(User.childUser.getName().getValue());
      }
      
@@ -73,7 +78,7 @@ public class ManageUsersController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+       
         UserId.setCellValueFactory(cellData -> cellData.getValue().getUserIdStringProperty());
         Name.setCellValueFactory(cellData -> cellData.getValue().getName());
         Username.setCellValueFactory(cellData -> cellData.getValue().getUserName());

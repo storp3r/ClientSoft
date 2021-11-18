@@ -13,8 +13,11 @@ import Model.User;
 import com.storper.matthew.Main;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -124,6 +127,7 @@ public class ModifyUserController extends User implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Database.getConnection();
         activeComboBox.getItems().addAll("NO", "YES");
         activeComboBox.getSelectionModel().selectLast();
         permissionComboBox.getItems().addAll(User.currentUser.getPermissionList());

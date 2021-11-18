@@ -28,6 +28,8 @@ import javafx.scene.control.TableColumn;
 import Model.NewClient;
 import java.io.IOException;
 import Model.AppointmentType;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * FXML Controller class

@@ -13,7 +13,7 @@
    <children>
       <Pane layoutY="-1.0" prefHeight="208.0" prefWidth="464.0" styleClass="homeTopPane">
          <children>
-            <Label fx:id="windowText" layoutX="26.0" layoutY="24.0" text="UPDATE CUSTOMER">
+            <Label fx:id="windowText" layoutX="26.0" layoutY="24.0" text="MODIFY CUSTOMER">
                <styleClass>
                   <String fx:value="usernameText" />
                   <String fx:value="mainText" />
