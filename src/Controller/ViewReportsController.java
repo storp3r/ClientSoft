@@ -137,6 +137,7 @@ public class ViewReportsController implements Initializable {
 
         if (cleared == false) {
             System.out.println("null detected");
+            Display.DisplayErrorMessage("noSelection", "noSelectionConsultMessage");
         }
     }
     
