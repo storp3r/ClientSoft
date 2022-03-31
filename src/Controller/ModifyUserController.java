@@ -69,7 +69,7 @@ public class ModifyUserController extends User implements Initializable {
     private Button addUserButton;
 
     @FXML
-    void handleSaveUserAction(ActionEvent event) {
+    void handleSaveUserAction(ActionEvent event) throws IOException {
 
         if (verify.checkFields(nameField, userNameField, passwordField, confirmPasswordField)) {
             String password = passwordField.getText().trim();
@@ -89,8 +89,9 @@ public class ModifyUserController extends User implements Initializable {
                         confirmPassword = CryptWithMD5.cryptWithMD5(confirmPassword);
                     } 
                     database.updateUser(child.getUserId(), name, userName, confirmPassword, activeLevel, permissionLevel, currentUser);
+                    
                 }
-                
+                display.DisplayMenu("ManageUsers", event);
             } else {
                 display.DisplayErrorMessage("passwordMatchError", "passwordMatchMessage");
             }
