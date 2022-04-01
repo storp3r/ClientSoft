@@ -1,4 +1,5 @@
 ClientSoft is a standalone application designed for small businesses to manage customers and appointment bookings.
+***Currently Requires Java 8 runtime 
 *To Launch ClientSoft click the ClientSoft.jar file located in the 'Dist' folder
 
 /*Login in*/
